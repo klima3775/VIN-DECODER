@@ -1,5 +1,3 @@
-import React from "react";
-
 const LastDecodes = ({ lastQueries, onSelect }) => {
   return (
     <div>

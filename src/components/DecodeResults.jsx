@@ -1,4 +1,8 @@
 const DecodeResults = ({ results }) => {
+  if (!results || results.length === 0) {
+    return <p>Результати відсутні.</p>;
+  }
+
   return (
     <div>
       <h3>Результати розшифровки:</h3>

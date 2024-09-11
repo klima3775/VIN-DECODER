@@ -1,29 +1,36 @@
-// Припустимо, що це ваш компонент VariableDetails
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const VariableDetails = () => {
-  const { id } = useParams();
-  const [variableDetails, setVariableDetails] = useState(null);
+const VariableDetail = () => {
+  const { variableId } = useParams();
+  const [variable, setVariable] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchVariableDetails = async () => {
-      setLoading(true);
+    const fetchVariable = async () => {
       try {
-        const response = await fetch(`https://api.example.com/variables/${id}`);
+        const response = await fetch(
+          `https://vpic.nhtsa.dot.gov/api/vehicles/getvehiclevariablelist?format=json`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
-        setVariableDetails(data);
+        const variableDetail = data.Results.find(
+          (v) => v.ID === parseInt(variableId)
+        );
+        setVariable(variableDetail);
       } catch (error) {
-        setError("Не вдалося завантажити дані.");
+        console.error("Помилка при отриманні деталей змінної:", error);
+        setError("Не вдалося завантажити деталі змінної.");
       } finally {
         setLoading(false);
       }
     };
 
-    fetchVariableDetails();
-  }, [id]);
+    fetchVariable();
+  }, [variableId]);
 
   if (loading) {
     return <div>Завантаження...</div>;
@@ -36,16 +43,16 @@ const VariableDetails = () => {
   return (
     <div>
       <h1>Деталі змінної</h1>
-      {variableDetails && (
+      {variable && (
         <div>
           <p>
-            <strong>ID:</strong> {variableDetails.id}
+            <strong>ID:</strong> {variable.ID}
           </p>
           <p>
-            <strong>Назва:</strong> {variableDetails.name}
+            <strong>Назва:</strong> {variable.Name}
           </p>
           <p>
-            <strong>Опис:</strong> {variableDetails.description}
+            <strong>Опис:</strong> {variable.Description}
           </p>
           {/* Додайте інші поля, які потрібно відобразити */}
         </div>
@@ -54,4 +61,4 @@ const VariableDetails = () => {
   );
 };
 
-export default VariableDetails;
+export default VariableDetail;
