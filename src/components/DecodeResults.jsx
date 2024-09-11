@@ -1,17 +1,16 @@
-const DecodersResults = ({ results }) => {
+const DecodeResults = ({ results }) => {
   return (
     <div>
       <h3>Результати розшифровки:</h3>
       <ul>
-        {results
-          .filter((result) => result.Value)
-          .map((result, index) => (
-            <li key={index}>
-              {result.Variable}: {result.Value}
-            </li>
-          ))}
+        {results.map((result, index) => (
+          <li key={index}>
+            <strong>{result.Variable}:</strong> {result.Value}
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
-export default DecodersResults;
+
+export default DecodeResults;
