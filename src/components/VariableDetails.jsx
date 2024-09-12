@@ -7,10 +7,12 @@ const VariableDetail = () => {
   const [variable, setVariable] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [loadingMessage, setLoadingMessage] = useState("Завантаження...");
 
   useEffect(() => {
     const fetchVariable = async () => {
       setLoading(true);
+      setLoadingMessage("Завантаження...");
       setError(null);
       try {
         const variableDetail = await fetchVariableDetails(variableId);
@@ -26,7 +28,7 @@ const VariableDetail = () => {
   }, [variableId]);
 
   if (loading) {
-    return <div>Завантаження...</div>;
+    return <div>{loadingMessage}</div>;
   }
 
   if (error) {
