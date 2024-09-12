@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchVariablesList } from "../api/loadVariables"; // Импортируем функцию
-
+import { fetchVariablesList } from "../api/loadVariables";
 const VariablesList = () => {
   const [variables, setVariables] = useState([]);
   const [error, setError] = useState("");
