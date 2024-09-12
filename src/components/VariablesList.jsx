@@ -1,23 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchVariablesList } from "../api/loadVariables";
+import Loader from "../components/loader";
+
 const VariablesList = () => {
   const [variables, setVariables] = useState([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadVariables = async () => {
+      setLoading(true);
       try {
         const data = await fetchVariablesList();
         setVariables(data);
       } catch (error) {
         console.error("Помилка при отриманні списку змінних:", error);
         setError("Не вдалося завантажити змінні.");
+      } finally {
+        setLoading(false);
       }
     };
 
     loadVariables();
   }, []);
+
+  if (loading) {
+    return <Loader message="Завантаження змінних..." />;
+  }
 
   if (error) {
     return <p>{error}</p>;

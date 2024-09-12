@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import DecodeResults from "./DecodeResults";
 import { decodeVin } from "../api/vinCode";
+import Loader from "../components/loader";
 
 const VinForm = ({ onVinSubmit }) => {
   const [vin, setVin] = useState("");
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,13 +22,20 @@ const VinForm = ({ onVinSubmit }) => {
     }
 
     setError(""); // Reset error message
-    const decodedResults = await decodeVin(vin);
+    setLoading(true);
+    try {
+      const decodedResults = await decodeVin(vin);
 
-    if (decodedResults.length === 0) {
+      if (decodedResults.length === 0) {
+        setError("Не вдалося розшифрувати VIN. Спробуйте ще раз.");
+      } else {
+        setResults(decodedResults);
+        onVinSubmit(vin); // Add the VIN to the list of submitted VINs
+      }
+    } catch (error) {
       setError("Не вдалося розшифрувати VIN. Спробуйте ще раз.");
-    } else {
-      setResults(decodedResults);
-      onVinSubmit(vin); // Add the VIN to the list of submitted VINs
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,6 +51,7 @@ const VinForm = ({ onVinSubmit }) => {
         />
         <button type="submit">Розшифрувати</button>
       </form>
+      {loading && <Loader message="Завантаження..." />}{" "}
       {error && <p className="error">{error}</p>}
       {results.length > 0 && <DecodeResults results={results} />}
     </div>

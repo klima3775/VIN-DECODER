@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchVariableDetails } from "../api/variableApi";
+import Loader from "../components/loader";
 
 const VariableDetail = () => {
   const { variableId } = useParams();
@@ -12,7 +13,6 @@ const VariableDetail = () => {
   useEffect(() => {
     const fetchVariable = async () => {
       setLoading(true);
-      setLoadingMessage("Завантаження...");
       setError(null);
       try {
         const variableDetail = await fetchVariableDetails(variableId);
@@ -28,7 +28,7 @@ const VariableDetail = () => {
   }, [variableId]);
 
   if (loading) {
-    return <div>{loadingMessage}</div>;
+    return <Loader message={loadingMessage} />; // Используем компонент Loader
   }
 
   if (error) {
