@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { fetchVariableDetails } from "../api/variableApi";
 
 const VariableDetail = () => {
   const { variableId } = useParams();
@@ -9,20 +10,12 @@ const VariableDetail = () => {
 
   useEffect(() => {
     const fetchVariable = async () => {
+      setLoading(true);
+      setError(null);
       try {
-        const response = await fetch(
-          `https://vpic.nhtsa.dot.gov/api/vehicles/getvehiclevariablelist?format=json`
-        );
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        const variableDetail = data.Results.find(
-          (v) => v.ID === parseInt(variableId)
-        );
+        const variableDetail = await fetchVariableDetails(variableId);
         setVariable(variableDetail);
       } catch (error) {
-        console.error("Помилка при отриманні деталей змінної:", error);
         setError("Не вдалося завантажити деталі змінної.");
       } finally {
         setLoading(false);
@@ -54,7 +47,6 @@ const VariableDetail = () => {
           <p>
             <strong>Опис:</strong> {variable.Description}
           </p>
-          {/* Додайте інші поля, які потрібно відобразити */}
         </div>
       )}
     </div>

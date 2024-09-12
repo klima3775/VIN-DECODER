@@ -6,7 +6,7 @@ const Home = () => {
   const [lastQueries, setLastQueries] = useState([]);
 
   const handleVinSubmit = (vin) => {
-    const updatedQueries = [vin, ...lastQueries.slice(0, 2)]; // Зберігаємо тільки останні 3 запити
+    const updatedQueries = [vin, ...lastQueries.slice(0, 2)]; // save only the last 3 queries
     setLastQueries(updatedQueries);
   };
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import DecodeResults from "./DecodeResults";
+import { decodeVin } from "../api/vinCode";
 
 const VinForm = ({ onVinSubmit }) => {
   const [vin, setVin] = useState("");
@@ -10,7 +11,7 @@ const VinForm = ({ onVinSubmit }) => {
     e.preventDefault();
     const vinRegex = /^[A-HJ-NPR-Z0-9]{17}$/;
 
-    // Валідація VIN
+    // Vin Validation
     if (!vin || !vinRegex.test(vin)) {
       setError(
         "Введіть дійсний VIN (рівно 17 символів, латинські букви та цифри)."
@@ -18,14 +19,14 @@ const VinForm = ({ onVinSubmit }) => {
       return;
     }
 
-    setError(""); // Скидання помилок
+    setError(""); // Reset error message
     const decodedResults = await decodeVin(vin);
 
     if (decodedResults.length === 0) {
       setError("Не вдалося розшифрувати VIN. Спробуйте ще раз.");
     } else {
       setResults(decodedResults);
-      onVinSubmit(vin); // Додаємо до історії пошуків
+      onVinSubmit(vin); // Add the VIN to the list of submitted VINs
     }
   };
 
@@ -45,19 +46,6 @@ const VinForm = ({ onVinSubmit }) => {
       {results.length > 0 && <DecodeResults results={results} />}
     </div>
   );
-};
-
-const decodeVin = async (vin) => {
-  try {
-    const response = await fetch(
-      `https://vpic.nhtsa.dot.gov/api/vehicles/decodevin/${vin}?format=json`
-    );
-    const data = await response.json();
-    return data.Results.filter((result) => result.Value); // Повертаємо лише результати, де значення заповнено
-  } catch (error) {
-    console.error("Помилка при розшифровці VIN:", error);
-    return [];
-  }
 };
 
 export default VinForm;

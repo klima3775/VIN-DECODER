@@ -10,11 +10,11 @@ const App = () => {
       <div>
         <Header />
         <Routes>
-          {/* Головна сторінка */}
+          {/* main*/}
           <Route path="/" element={<Home />} />
-          {/* Сторінка зі списком усіх змінних */}
+          {/* variables*/}
           <Route path="/variables" element={<VariablesList />} />
-          {/* Сторінка з детальною інформацією про змінну */}
+          {/* info variable */}
           <Route path="/variables/:variableId" element={<VariableDetail />} />
         </Routes>
       </div>
