@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchVariableDetails } from "../api/variableApi";
-import Loader from "../components/loader";
+import { fetchVariableDetails } from "../../api/variableApi";
+import Loader from "../Loader/loader";
 
 const VariableDetail = () => {
   const { variableId } = useParams();

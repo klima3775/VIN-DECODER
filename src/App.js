@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import VariablesList from "./components/VariablesList";
+import VariablesList from "./components/VarieblesList/VariablesList";
 import VariableDetail from "./pages/VariableDetail";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 const App = () => {
   return (
     <Router>

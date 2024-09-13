@@ -1,5 +1,5 @@
 import React from "react";
-import VariablesList from "../components/VariablesList";
+import VariablesList from "../components/VarieblesList/VariablesList";
 
 const Variables = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import VariableDetails from "../components/VariableDetails";
+import VariableDetails from "../components/VariableDetails/VariableDetails";
 
 const VariableDetail = () => {
   return (

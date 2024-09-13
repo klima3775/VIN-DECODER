@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import DecodeResults from "./DecodeResults";
-import { decodeVin } from "../api/vinCode";
-import Loader from "../components/loader";
+import DecodeResults from "../DecodeResults/DecodeResults";
+import { decodeVin } from "../../api/vinCode";
+import Loader from "../Loader/loader";
 
 const VinForm = ({ onVinSubmit }) => {
   const [vin, setVin] = useState("");
