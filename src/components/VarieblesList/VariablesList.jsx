@@ -9,6 +9,7 @@ const VariablesList = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
+  // fetch variables list
   useEffect(() => {
     const loadVariables = async () => {
       setLoading(true);
@@ -25,7 +26,7 @@ const VariablesList = () => {
 
     loadVariables();
   }, []);
-
+  //  ERROR: The variableId is not defined
   if (loading) {
     return <Loader message="Завантаження змінних..." />;
   }

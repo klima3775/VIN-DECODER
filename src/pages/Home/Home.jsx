@@ -6,6 +6,7 @@ import "./Home.scss";
 const Home = () => {
   const [lastQueries, setLastQueries] = useState([]);
 
+  // Copy Vin query to clipboard
   const handleCopy = (query) => {
     navigator.clipboard
       .writeText(query)

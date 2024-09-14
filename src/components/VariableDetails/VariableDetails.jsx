@@ -10,6 +10,7 @@ const VariableDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Fetch variable details
   useEffect(() => {
     const fetchVariable = async () => {
       setLoading(true);
@@ -26,7 +27,7 @@ const VariableDetail = () => {
 
     fetchVariable();
   }, [variableId]);
-
+  // ERROR: The variableId is not defined
   if (loading) {
     return <Loader message={"Завантаження..."} />;
   }
