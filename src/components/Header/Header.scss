@@ -1,0 +1,36 @@
+$font-family: Arial, sans-serif;
+$color: #333;
+$background-color: #f9f9f9;
+$link-color: #007bff;
+$link-hover-color: darken($link-color, 10%);
+$border-color: #ddd;
+
+.header {
+  font-family: $font-family;
+  background-color: $background-color;
+  padding: 10px 20px;
+  border-bottom: 1px solid $border-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  nav {
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 20px;
+
+      li {
+        a {
+          text-decoration: none;
+          color: $link-color;
+          font-size: 16px;
+
+          &:hover {
+            color: $link-hover-color;
+          }
+        }
+      }
+    }
+  }
+}

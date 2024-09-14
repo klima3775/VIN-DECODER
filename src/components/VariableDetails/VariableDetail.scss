@@ -1,0 +1,38 @@
+$font-family: Arial, sans-serif;
+$color: #333;
+$border-color: #ddd;
+$background-color: #f9f9f9;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+$error-color: red;
+
+.variable-detail {
+  font-family: $font-family;
+  color: $color;
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background-color: $background-color;
+  box-shadow: $box-shadow;
+  margin-top: 20px;
+
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .variable-info {
+    p {
+      margin-bottom: 10px;
+    }
+
+    strong {
+      color: $color;
+    }
+  }
+
+  .error {
+    color: $error-color;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+}

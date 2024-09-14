@@ -1,0 +1,52 @@
+$font-family: Arial, sans-serif;
+$color: #333;
+$border-color: #ddd;
+$background-color: #f9f9f9;
+$button-background: #007bff;
+$button-color: #fff;
+$button-hover-background: darken($button-background, 10%);
+$error-color: red;
+
+.vin-form {
+  font-family: $font-family;
+  color: $color;
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background-color: $background-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    input {
+      padding: 10px;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: $button-background;
+      color: $button-color;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+
+      &:hover {
+        background-color: $button-hover-background;
+      }
+    }
+  }
+
+  .error {
+    color: $error-color;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}

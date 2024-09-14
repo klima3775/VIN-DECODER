@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { fetchVariableDetails } from "../../api/variableApi";
 import Loader from "../Loader/loader";
+import "./VariableDetail.scss";
 
 const VariableDetail = () => {
   const { variableId } = useParams();
@@ -31,14 +32,14 @@ const VariableDetail = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="error">{error}</div>;
   }
 
   return (
-    <div>
+    <div className="variable-detail">
       <h1>Деталі змінної</h1>
       {variable && (
-        <div>
+        <div className="variable-info">
           <p>
             <strong>ID:</strong> {variable.ID}
           </p>

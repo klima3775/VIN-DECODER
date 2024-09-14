@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DecodeResults from "../DecodeResults/DecodeResults";
 import { decodeVin } from "../../api/vinCode";
 import Loader from "../Loader/loader";
+import "./VinForm.scss";
 
 const VinForm = ({ onVinSubmit }) => {
   const [vin, setVin] = useState("");
@@ -40,7 +41,7 @@ const VinForm = ({ onVinSubmit }) => {
   };
 
   return (
-    <div>
+    <div className="vin-form">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -51,7 +52,7 @@ const VinForm = ({ onVinSubmit }) => {
         />
         <button type="submit">Розшифрувати</button>
       </form>
-      {loading && <Loader message="Завантаження..." />}{" "}
+      {loading && <Loader message="Завантаження..." />}
       {error && <p className="error">{error}</p>}
       {results.length > 0 && <DecodeResults results={results} />}
     </div>

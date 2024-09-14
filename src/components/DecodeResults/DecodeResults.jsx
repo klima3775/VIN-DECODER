@@ -1,10 +1,13 @@
+import React from "react";
+import "./DecodeResults.scss";
+
 const DecodeResults = ({ results }) => {
   if (!results || results.length === 0) {
-    return <p>Результати відсутні.</p>;
+    return <p className="no-results">Результати відсутні.</p>;
   }
 
   return (
-    <div>
+    <div className="decode-results">
       <h3>Результати розшифровки:</h3>
       <ul>
         {results.map((result, index) => (

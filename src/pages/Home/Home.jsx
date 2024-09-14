@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import VinForm from "../components/VinForm/VinForm";
-import LastDecodes from "../components/LastDecodes/LastDecodes";
+import VinForm from "../../components/VinForm/VinForm";
+import LastDecodes from "../../components/LastDecodes/LastDecodes";
 
 const Home = () => {
   const [lastQueries, setLastQueries] = useState([]);

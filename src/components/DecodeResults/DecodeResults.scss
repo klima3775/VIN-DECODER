@@ -1,0 +1,41 @@
+$font-family: Arial, sans-serif;
+$color: #333;
+$border-color: #ddd;
+$background-color: #f9f9f9;
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+.decode-results {
+  font-family: $font-family;
+  color: $color;
+  padding: 20px;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background-color: $background-color;
+  box-shadow: $box-shadow;
+  margin-top: 20px;
+
+  h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  strong {
+    color: $color;
+  }
+}
+
+.no-results {
+  font-family: $font-family;
+  color: red;
+  font-size: 16px;
+  margin-top: 20px;
+}

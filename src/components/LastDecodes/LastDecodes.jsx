@@ -1,6 +1,8 @@
+import "./LastDecodes.scss";
+
 const LastDecodes = ({ lastQueries, onSelect }) => {
   return (
-    <div>
+    <div className="last-decodes">
       <h4>Останні запити:</h4>
       <ul>
         {lastQueries.map((query, index) => (

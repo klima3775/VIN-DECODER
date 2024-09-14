@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fetchVariablesList } from "../../api/loadVariables";
 import Loader from "../Loader/loader";
+import "./VariablesList.scss";
 
 const VariablesList = () => {
   const [variables, setVariables] = useState([]);
@@ -30,11 +31,11 @@ const VariablesList = () => {
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return <p className="error">{error}</p>;
   }
 
   return (
-    <div>
+    <div className="variables-list">
       <h3>Список усіх змінних:</h3>
       <ul>
         {variables.map((variable) => (

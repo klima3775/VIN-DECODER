@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import VariablesList from "./components/VarieblesList/VariablesList";
-import VariableDetail from "./pages/VariableDetail";
+import VariableDetail from "./pages/VariablesDetail/VariableDetail";
 import Header from "./components/Header/Header";
 const App = () => {
   return (
     <Router>
-      <div>
+      <div className="App">
         <Header />
         <Routes>
           {/* main*/}
