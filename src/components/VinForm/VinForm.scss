@@ -1,11 +1,4 @@
-$font-family: Arial, sans-serif;
-$color: #333;
-$border-color: #ddd;
-$background-color: #f9f9f9;
-$button-background: #007bff;
-$button-color: #fff;
-$button-hover-background: darken($button-background, 10%);
-$error-color: red;
+@import "../../uiKit/variables";
 
 .vin-form {
   font-family: $font-family;
