@@ -1,13 +1,13 @@
 import "./LastDecodes.scss";
 
-const LastDecodes = ({ lastQueries, onSelect }) => {
+const LastDecodes = ({ lastQueries, onCopy }) => {
   return (
     <div className="last-decodes">
       <h4>Останні запити:</h4>
       <ul>
         {lastQueries.map((query, index) => (
           <li key={index}>
-            <button onClick={() => onSelect(query)}>{query}</button>
+            <button onClick={() => onCopy(query)}>{query}</button>
           </li>
         ))}
       </ul>
