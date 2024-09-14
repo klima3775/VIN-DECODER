@@ -1,4 +1,4 @@
-@import "../../uiKit/variables";
+@import "../../uiKit/uiKit";
 
 .variables-list {
   font-family: $font-family;
@@ -8,6 +8,8 @@
   border-radius: 4px;
   background-color: $background-color;
   box-shadow: $box-shadow;
+  margin-top: 20px;
+  text-align: center;
 
   h3 {
     font-size: 24px;
@@ -17,6 +19,7 @@
   ul {
     list-style-type: none;
     padding: 0;
+    text-align: left;
   }
 
   li {
@@ -35,7 +38,7 @@
 }
 
 .error {
-  color: red;
+  color: $error-color;
   font-size: 16px;
   margin-top: 20px;
 }

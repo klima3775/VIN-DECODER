@@ -1,0 +1,20 @@
+@import "../../uiKit/uiKit";
+
+.Home {
+  text-align: center;
+
+  h1 {
+    font-family: $font-family;
+    color: $color;
+    margin-bottom: 20px;
+  }
+  .vin-form,
+  .last-decodes {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+
+  .last-decodes {
+    margin-top: 20px;
+  }
+}

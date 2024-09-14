@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import VinForm from "../../components/VinForm/VinForm";
 import LastDecodes from "../../components/LastDecodes/LastDecodes";
+import "./Home.scss";
 
 const Home = () => {
   const [lastQueries, setLastQueries] = useState([]);
@@ -11,7 +12,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="Home">
       <h1>Розшифровка VIN-коду</h1>
       <VinForm onVinSubmit={handleVinSubmit} />
       <LastDecodes
