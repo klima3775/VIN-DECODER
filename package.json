@@ -13,7 +13,7 @@
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.0.0",  
+    "sass": "^1.0.0",
     "sass-loader": "^16.0.1",
     "scss": "^0.2.4",
     "web-vitals": "^2.1.4"
@@ -28,6 +28,18 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   }
 }
